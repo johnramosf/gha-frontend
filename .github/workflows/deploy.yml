@@ -19,10 +19,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout Code
-              uses: actions/checkout@v6
+              uses: actions/checkout@v4
 
             - name: Setup Node.js
-              uses: actions/setup-node@v6
+              uses: actions/setup-node@v4
               with:
                 node-version: 24
                 cache: npm
@@ -41,7 +41,7 @@ jobs:
         needs: build
         environment:
             name: github-pages
-            url: ${{ steps.deployment.output.page_url }}
+            url: ${{ steps.deployment.outputs.page_url }}
         steps:
           - name: Deploy to GitHub Pages
             id: deployment
